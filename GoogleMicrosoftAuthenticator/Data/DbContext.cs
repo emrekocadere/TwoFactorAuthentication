@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoogleMicrosoftAuthenticator;
 
-public class DbContext:IdentityDbContext
+public class DbContext:IdentityDbContext<User>
 {
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer("Server=localhost; Database=sql; User Id=SA; Password=reallyStrongPwd123;TrustServerCertificate=True");
-    }
+        public DbContext(DbContextOptions<GoogleMicrosoftAuthenticator.DbContext> options):base(options)
+        {
+
+        }
 }   
